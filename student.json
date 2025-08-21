@@ -1,0 +1,57 @@
+[
+  {
+    "nim": 2025001,
+    "nama": "Luqman",
+    "kelas": "A",
+    "prodi": "Informatika",
+    "fakultas": "Teknik",
+    "jenisKelamin": "Laki-Laki",
+    "ipk": 3.75,
+    "pwAkun": "password123",
+    "isPresent":false
+  },
+  {
+    "nim": 2025002,
+    "nama": "Aisyah",
+    "kelas": "B",
+    "prodi": "Sistem Informasi",
+    "fakultas": "Teknik",
+    "jenisKelamin": "Perempuan",
+    "ipk": 3.55,
+    "pwAkun": "rahasia456",
+    "isPresent":true
+  },
+  {
+    "nim": 2025003,
+    "nama": "Budi",
+    "kelas": "A",
+    "prodi": "Teknik Elektro",
+    "fakultas": "Teknik",
+    "jenisKelamin": "Laki-Laki",
+    "ipk": 3.20,
+    "pwAkun": "budi789",
+    "isPresent":false
+  },
+  {
+    "nim": 2025004,
+    "nama": "Siti",
+    "kelas": "C",
+    "prodi": "Manajemen",
+    "fakultas": "Ekonomi",
+    "jenisKelamin": "Perempuan",
+    "ipk": 3.90,
+    "pwAkun": "sitiPass",
+    "isPresent":true
+  },
+  {
+    "nim": 2025005,
+    "nama": "Andi",
+    "kelas": "B",
+    "prodi": "Hukum",
+    "fakultas": "Hukum",
+    "jenisKelamin": "Laki-Laki",
+    "ipk": 2.95,
+    "pwAkun": "andi321",
+    "isPresent":false
+  }
+]
