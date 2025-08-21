@@ -3,11 +3,17 @@ const express = require('express');
 const app = express();
 const studentRoute = require('./routes/studentRoute')
 const connectDB = require('./db/connect')
+const notFound =require('./middleware/notFound')
+const errorHandleMiddleware = require('./middleware/errorHandler')
 
 app.use(express.json())
 
 
 app.use('/api/v1/student', studentRoute)
+
+
+app.use(notFound)
+app.use(errorHandleMiddleware)
 
 const port = process.env.PORT || 3000
 

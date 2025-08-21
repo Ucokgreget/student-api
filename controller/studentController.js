@@ -1,4 +1,5 @@
 const Student = require('../model/studentModel')
+const createCustomError = require('../error/custom-error')
 
 const getAllStudent = async (req, res) => {
     const student = await Student.find({})
@@ -10,33 +11,36 @@ const createStudent = async (req, res) => {
     res.status(201).json({student});
 }
 
-const getStudent = async (req, res) =>{
-    const {nim:nimMhsw} = req.params;
+const getStudent = async (req, res, next) =>{
+    const {nim} = req.params;
+    const nimMhsw = Number(nim)
     const student = await Student.findOne({nim:nimMhsw})
     if(!student){
-        return res.status(404).json({msg:`tidak ada mahasiswa dengan nim: ${nimMhsw}`})
+        return next(createCustomError(`tidak ada mahasiswa dengan nim ${nimMhsw}`, 404))
     }
     res.status(200).json(student)   
 }
 
-const deleteStudent = async (req, res) => {
-    const {nim:nimMhsw} = req.params;
+const deleteStudent = async (req, res, next) => {
+    const {nim} = req.params;
+    const nimMhsw = Number(nim)
     const student = await Student.findOneAndDelete({nim:nimMhsw});
     if(!student){
-        return res.status(404).json({msg:`tidak ada mahasiswa dengan nim: ${nimMhsw}`})
+        return next(createCustomError(`tidak ada mahasiswa dengan nim ${nimMhsw}`, 404))
     }
     res.status(200).json(student)
 }
 
-const updateStudent = async (req, res) => {
-    const {nim:nimMhsw} = req.params;
+const updateStudent = async (req, res, next) => {
+    const {nim} = req.params
+    const nimMhsw = Number(nim)
     const student = await Student.findOneAndUpdate({nim:nimMhsw}, req.body, {
         new:true,
         runValidator:true
     })
 
     if(!student){
-        return res.status(404).json({msg:`tidak ada mahasiswa dengan nim: ${nimMhsw}`})
+        return next(createCustomError(`tidak ada mahasiswa dengan nim ${nimMhsw}`, 404))
     }
     res.status(200).json(student)
 }
